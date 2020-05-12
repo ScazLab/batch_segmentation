@@ -31,4 +31,33 @@ My code accepts --help and --verbose. I hope this helps you.
 
 
 Good segmenting! :) 
- 
+
+
+- Meiying: 
+install CGAl lib with
+```
+sudo apt-get install libcgal-dev
+
+```
+
+install meshlab with
+
+```
+sudo apt-get install meshlab
+```
+
+Other method may be needed potentially:
+
+```
+sudo apt-get install libcanberra-gtk-module
+```
+
+To run it to segment the meshes(example):
+```
+./segment_meshes -i data_demo -o data_demo_segmented -z 2:1:8,0.1:0.1:0.7 -e ply --verbose
+
+```
+Merge similar segments
+"""
+./remove_similar_segm -i data_demo_segmented -o data_demo_segmented_unique --verbose
+"""
