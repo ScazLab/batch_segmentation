@@ -55,9 +55,27 @@ sudo apt-get install libcanberra-gtk-module
 To run it to segment the meshes(example):
 ```
 ./segment_meshes -i data_demo -o data_demo_segmented -z 2:1:8,0.1:0.1:0.7 -e ply --verbose
-
 ```
+It sometimes throw a floating point exception in the cgal functions. I don't know why that happens. To process a batch of point cloud, it would be more efficient to set a small range of the point cloud first, like
+```
+./segment_meshes -i data_demo -o data_demo_segmented -z 2:1:2,0.1:0.1:0.1 -e ply --verbose
+```
+Make sure all the initial point cloud are good. And then run the full batch, so you can leave it over-night.
+
+It is better not to handle the SIGFPE, as the program may be in a very unstable state. More information from here: <https://stackoverflow.com/questions/39431879/c-handle-signal-sigfpe-and-continue-execution>
+
 Merge similar segments
 """
 ./remove_similar_segm -i data_demo_segmented -o data_demo_segmented_unique --verbose
+"""
+It occasionally throws segmentation fault. This is likely happened because the point cloud file generated in the previous step is not complete. Just delete that ply and rerun the first command.
+
+Organize the segments (we implement this)
+"""
+python pointcloud_get_segments.py
+"""
+
+Build with 
+"""
+make
 """
