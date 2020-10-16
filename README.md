@@ -33,7 +33,8 @@ My code accepts --help and --verbose. I hope this helps you.
 Good segmenting! :) 
 
 
-- Meiying: 
+## Meiying's comments
+
 install CGAl lib with
 ```
 sudo apt-get install libcgal-dev
@@ -65,17 +66,17 @@ Make sure all the initial point cloud are good. And then run the full batch, so 
 It is better not to handle the SIGFPE, as the program may be in a very unstable state. More information from here: <https://stackoverflow.com/questions/39431879/c-handle-signal-sigfpe-and-continue-execution>
 
 Merge similar segments
-"""
+```
 ./remove_similar_segm -i data_demo_segmented -o data_demo_segmented_unique --verbose
-"""
+```
 It occasionally throws segmentation fault. This is likely happened because the point cloud file generated in the previous step is not complete. Just delete that ply and rerun the first command.
 
 Organize the segments (we implement this)
-"""
+```
 python pointcloud_get_segments.py
-"""
+```
 
 Build with 
-"""
+```
 make
-"""
+```
