@@ -78,5 +78,14 @@ python pointcloud_get_segments.py
 
 Build with 
 ```
-make
+cmake .
+make -j 4
 ```
+
+You might need to change the following to successfully make it:
+- in `Makefile`, update the `CMAKE_SOURCE_DIR` (line 51) and `CMAKE_BINARY_DIR` (line 54)
+- in `Makefile`, update the target of `cmake_check_build_system` (line 83) and `CMAKE_BINARY_DIR` (line 85)
+<!-- - in `CMakeCache.txt`, update the `segmentation_BINARY_DIR` (line 190) and `segmentation_SOURCE_DIR` (line 193)
+- in `CMakeCache.txt`, update the `CMAKE_CACHEFILE_DIR` (line 212)
+- in `CMakeCache.txt`, update the `CMAKE_HOME_DIRECTORY` (line 277) -->
+- in `cmake_install.cmake`, update the `CMAKE_INSTALL_MANIFEST_CONTENT` (line 43)
