@@ -76,6 +76,11 @@ Organize the segments (we implement this)
 python pointcloud_get_segments.py
 ```
 
+Choose a segmented ply
+```
+python choose_segments.py
+```
+
 Build with 
 ```
 cmake .
